@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="日本語の文章の文字数をリアルタイムで数える無料ツール。空白を除いた文字数や400字詰め原稿用紙の目安も確認できます。">
+    <meta name="theme-color" content="#2457d6">
+
+    <title>文字数カウンター｜ちょいラク工具箱</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/tools/character-counter.css">
+    <script src="../assets/js/tools/character-counter.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html" aria-label="トップページへ戻る">
+                <span class="brand-icon" aria-hidden="true">🔧</span>
+                <span class="brand-text">
+                    <span class="brand-name">ちょいラク工具箱</span>
+                    <span class="brand-tagline">毎日のちょっとした作業を、手早く。</span>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+            <a href="../index.html">トップページ</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">文字数カウンター</span>
+        </nav>
+
+        <section class="tool-intro">
+            <p class="eyebrow">TEXT TOOL</p>
+            <h1>文字数カウンター</h1>
+            <p>
+                文章を入力するだけで文字数を自動計算。
+                レポート、ブログ、SNSの文章作成に便利です。
+            </p>
+        </section>
+
+        <section class="counter-panel" aria-labelledby="input-title">
+            <div class="counter-panel-heading">
+                <h2 id="input-title">文章を入力</h2>
+                <span class="live-indicator">
+                    <span aria-hidden="true">●</span> 自動カウント
+                </span>
+            </div>
+
+            <label class="visually-hidden" for="text-input">
+                文字数を数える文章
+            </label>
+            <textarea id="text-input" class="counter-textarea" placeholder="ここに文章を入力、または貼り付けてください..."
+                spellcheck="false"></textarea>
+
+            <div class="counter-actions">
+                <span id="input-status" class="input-status" role="status" aria-live="polite">
+                    文章を入力してください
+                </span>
+                <div class="action-buttons">
+                    <button id="copy-button" class="button button-secondary" type="button">
+                        文章をコピー
+                    </button>
+                    <button id="clear-button" class="button button-secondary" type="button">
+                        クリア
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="counter-results" aria-labelledby="results-title">
+            <h2 id="results-title">カウント結果</h2>
+
+            <div class="counter-grid">
+                <article class="counter-card counter-card-primary">
+                    <p>文字数（空白・改行を含む）</p>
+                    <p class="counter-number" id="count-all" aria-live="polite">0</p>
+                    <span>文字</span>
+                </article>
+
+                <article class="counter-card">
+                    <p>文字数（空白・改行を除く）</p>
+                    <p class="counter-number" id="count-no-whitespace">0</p>
+                    <span>文字</span>
+                </article>
+
+                <article class="counter-card">
+                    <p>空白・改行の数</p>
+                    <p class="counter-number" id="count-whitespace">0</p>
+                    <span>文字</span>
+                </article>
+
+                <article class="counter-card">
+                    <p>行数</p>
+                    <p class="counter-number" id="count-lines">0</p>
+                    <span>行</span>
+                </article>
+
+                <article class="counter-card">
+                    <p>400字詰め原稿用紙の目安</p>
+                    <p class="counter-number" id="count-manuscript">0</p>
+                    <span>枚相当（切り上げ）</span>
+                </article>
+            </div>
+
+            <p class="counter-note">
+                ※ 文字数は絵文字なども、画面上で認識できる文字単位で数えます。
+                原稿用紙の枚数は空白・改行を含む文字数を400で割って切り上げた目安です。
+            </p>
+        </section>
+
+        <section class="tool-help">
+            <h2>使い方</h2>
+            <ol>
+                <li>入力欄に文章を入力するか、コピーした文章を貼り付けます。</li>
+                <li>文字数や行数などが自動で更新されます。</li>
+                <li>必要に応じて「文章をコピー」や「クリア」を使います。</li>
+            </ol>
+            <p class="privacy-note">
+                入力した文章は、このページ内で処理され、外部サーバーには送信されません。
+            </p>
+        </section>
+
+        <p class="back-link">
+            <a href="../index.html">← トップページに戻る</a>
+        </p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a href="../index.html" class="footer-brand">ちょいラク工具箱</a>
+            <p>便利なツールを、シンプルに。</p>
+            <small>&copy; <span id="current-year">2026</span> ちょいラク工具箱</small>
+        </div>
+    </footer>
+</body>
+
+</html>
