@@ -1,0 +1,416 @@
+/* ========================================
+   ちょいラク工具箱 - 共通スタイル
+   ======================================== */
+
+:root {
+    color-scheme: light;
+
+    --color-primary: #2457d6;
+    --color-primary-hover: #1946b8;
+    --color-text: #172033;
+    --color-muted: #64748b;
+    --color-border: #e2e8f0;
+    --color-background: #f5f7fa;
+    --color-surface: #ffffff;
+
+    --radius-card: 14px;
+    --radius-input: 10px;
+    --content-width: 960px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--color-text);
+    background: var(--color-background);
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans JP",
+        sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.container {
+    width: min(var(--content-width), calc(100% - 40px));
+    margin-inline: auto;
+}
+
+/* ヘッダー */
+
+.site-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    min-height: 78px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--color-primary);
+    font-size: 24px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-size: 19px;
+    font-weight: 750;
+    line-height: 1.4;
+}
+
+.brand-tagline {
+    color: var(--color-muted);
+    font-size: 12px;
+}
+
+/* メインの紹介エリア */
+
+main {
+    padding-top: 36px;
+    padding-bottom: 48px;
+}
+
+.intro {
+    padding: 32px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+}
+
+.intro h1 {
+    margin: 0;
+    font-size: clamp(24px, 4vw, 32px);
+    line-height: 1.45;
+    letter-spacing: -0.025em;
+}
+
+.intro-description {
+    margin: 10px 0 24px;
+    color: var(--color-muted);
+    font-size: 15px;
+}
+
+/* 検索欄 */
+
+.search-label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--radius-input);
+    background: var(--color-surface);
+}
+
+.search-wrapper>span {
+    color: var(--color-muted);
+    font-size: 25px;
+    line-height: 1;
+}
+
+.search-input {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 10px 0;
+    border: 0;
+    outline: none;
+    color: var(--color-text);
+    background: transparent;
+    font-size: 16px;
+}
+
+.search-wrapper:focus-within {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.search-input::placeholder {
+    color: #94a3b8;
+}
+
+/* ツール一覧 */
+
+.tool-section {
+    margin-top: 32px;
+}
+
+.section-heading {
+    margin-bottom: 16px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 21px;
+}
+
+.section-heading p {
+    margin: 4px 0 0;
+    color: var(--color-muted);
+    font-size: 14px;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.tool-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    min-height: 200px;
+    padding: 22px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        transform 0.15s ease;
+}
+
+.tool-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 5px 18px rgb(23 32 51 / 6%);
+    transform: translateY(-2px);
+}
+
+.tool-card:focus-visible,
+.brand:focus-visible,
+.footer-brand:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+.tool-icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    font-size: 19px;
+    font-weight: 750;
+}
+
+.icon-blue {
+    color: #2457d6;
+    background: #eaf0ff;
+}
+
+.icon-green {
+    color: #16835d;
+    background: #e5f7ef;
+}
+
+.icon-orange {
+    color: #a65d0a;
+    background: #fff1dc;
+}
+
+.icon-purple {
+    color: #8154c8;
+    background: #f1eaff;
+}
+
+.tool-card-title {
+    font-size: 17px;
+    font-weight: 750;
+}
+
+.tool-card-description {
+    margin-top: 4px;
+    color: var(--color-muted);
+    font-size: 14px;
+}
+
+.tool-card-link {
+    margin-top: auto;
+    padding-top: 16px;
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.tool-card[hidden] {
+    display: none;
+}
+
+.empty-message {
+    margin: 20px 0 0;
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    color: var(--color-muted);
+    background: var(--color-surface);
+    text-align: center;
+}
+
+.empty-message[hidden] {
+    display: none;
+}
+
+/* 補足メッセージ */
+
+.privacy-note {
+    margin: 24px 0 0;
+    color: var(--color-muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* フッター */
+
+.site-footer {
+    padding: 26px 0;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
+    text-align: center;
+}
+
+.footer-inner p {
+    margin: 4px 0;
+    color: var(--color-muted);
+    font-size: 13px;
+}
+
+.footer-brand {
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.footer-inner small {
+    display: block;
+    margin-top: 14px;
+    color: var(--color-muted);
+    font-size: 12px;
+}
+
+/* スマートフォン */
+
+@media (max-width: 600px) {
+    .container {
+        width: calc(100% - 28px);
+    }
+
+    .header-inner {
+        min-height: 70px;
+    }
+
+    .brand-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .brand-name {
+        font-size: 17px;
+    }
+
+    .brand-tagline {
+        font-size: 11px;
+    }
+
+    main {
+        padding-top: 20px;
+        padding-bottom: 32px;
+    }
+
+    .intro {
+        padding: 22px 18px;
+        border-radius: 14px;
+    }
+
+    .intro h1 {
+        font-size: 25px;
+    }
+
+    .intro-description {
+        font-size: 14px;
+    }
+
+    .tool-section {
+        margin-top: 26px;
+    }
+
+    .tool-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .tool-card {
+        min-height: 180px;
+        padding: 18px;
+    }
+}
+
+/* 動きを減らす設定を利用している場合 */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="文字数カウント、日数計算、割合計算など、日常の作業を手早くする無料Webツール集。">
+
+    <meta name="theme-color" content="#2457d6">
+
+    <title>ちょいラク工具箱｜便利な無料Webツール</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/main.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="ちょいラク工具箱 トップページ">
+                <span class="brand-icon" aria-hidden="true">🔧</span>
+                <span class="brand-text">
+                    <span class="brand-name">ちょいラク工具箱</span>
+                    <span class="brand-tagline">毎日のちょっとした作業を、手早く。</span>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro" aria-labelledby="intro-title">
+            <p class="eyebrow">FREE WEB TOOLS</p>
+
+            <h1 id="intro-title">使いたいツールを、すぐ見つける。</h1>
+
+            <p class="intro-description">
+                日常のちょっとした面倒を、シンプルなツールで解決。
+            </p>
+
+            <label class="search-label" for="tool-search">
+                ツールを検索
+            </label>
+
+            <div class="search-wrapper">
+                <span aria-hidden="true">⌕</span>
+                <input id="tool-search" class="search-input" type="search" placeholder="例：文字数、日付、割合" autocomplete="off">
+            </div>
+        </section>
+
+        <section class="tool-section" aria-labelledby="tools-title">
+            <div class="section-heading">
+                <h2 id="tools-title">便利ツール一覧</h2>
+                <p>必要なツールを選んでください。</p>
+            </div>
+
+            <div class="tool-grid" id="tool-list">
+
+                <a class="tool-card" href="tools/character-counter.html" data-search="文字数カウンター 文字数 文章 単語 カウント">
+                    <span class="tool-icon icon-blue" aria-hidden="true">Aa</span>
+                    <span class="tool-card-title">文字数カウンター</span>
+                    <span class="tool-card-description">
+                        文章の文字数をすばやくチェック。
+                    </span>
+                    <span class="tool-card-link">ツールを開く <span aria-hidden="true">→</span></span>
+                </a>
+
+                <a class="tool-card" href="tools/date-calculator.html" data-search="日数計算 日付 期間 日にち 日付差">
+                    <span class="tool-icon icon-green" aria-hidden="true">日</span>
+                    <span class="tool-card-title">日数計算</span>
+                    <span class="tool-card-description">
+                        2つの日付の間の日数を計算。
+                    </span>
+                    <span class="tool-card-link">ツールを開く <span aria-hidden="true">→</span></span>
+                </a>
+
+                <a class="tool-card" href="tools/percentage-calculator.html" data-search="割合計算 パーセント ％ 増減率 比率">
+                    <span class="tool-icon icon-orange" aria-hidden="true">％</span>
+                    <span class="tool-card-title">割合計算</span>
+                    <span class="tool-card-description">
+                        割合やパーセントをかんたん計算。
+                    </span>
+                    <span class="tool-card-link">ツールを開く <span aria-hidden="true">→</span></span>
+                </a>
+
+                <a class="tool-card" href="tools/text-formatter.html" data-search="文章整形 テキスト 空白 改行 整理 文字">
+                    <span class="tool-icon icon-purple" aria-hidden="true">文</span>
+                    <span class="tool-card-title">文章整形</span>
+                    <span class="tool-card-description">
+                        余分な空白や改行をまとめて整理。
+                    </span>
+                    <span class="tool-card-link">ツールを開く <span aria-hidden="true">→</span></span>
+                </a>
+
+            </div>
+
+            <p class="empty-message" id="empty-message" role="status" hidden>
+                該当するツールが見つかりませんでした。
+                別のキーワードで検索してください。
+            </p>
+        </section>
+
+        <p class="privacy-note">
+            <span aria-hidden="true">🔒</span>
+            シンプルで使いやすいツールを目指しています。
+        </p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a href="index.html" class="footer-brand">ちょいラク工具箱</a>
+            <p>便利なツールを、シンプルに。</p>
+            <small>&copy; <span id="current-year"></span> ちょいラク工具箱</small>
+        </div>
+    </footer>
+</body>
+
+</html>
