@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="通常の日数や土日・祝日を除いた営業日数を計算できる無料ツールです。">
+    <title>日数・営業日計算ツール | ちょいラク工具箱</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/tools/date-calculator.css">
+
+    <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/tools/date-calculator.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="site-logo" href="../index.html">ちょいラク工具箱</a>
+        </div>
+    </header>
+
+    <main class="container date-tool">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+            <a href="../index.html">トップページ</a>
+            <span aria-hidden="true">›</span>
+            <span>日数・営業日計算ツール</span>
+        </nav>
+
+        <section class="tool-intro">
+            <h1>日数・営業日計算ツール</h1>
+            <p>
+                日付の間の日数や、指定した日数後・前の日付を計算できます。
+                通常の日数と、土日・祝日を除いた営業日数を切り替えて利用できます。
+            </p>
+        </section>
+
+        <section class="calculation-mode-panel" aria-labelledby="mode-heading">
+            <h2 id="mode-heading">計算方法を選択</h2>
+
+            <div class="calculation-mode-options">
+                <label class="mode-option">
+                    <input type="radio" name="calculation-mode" value="calendar" checked>
+                    <span class="mode-option-content">
+                        <strong>通常の日数</strong>
+                        <span>土日・祝日も含めて計算</span>
+                    </span>
+                </label>
+
+                <label class="mode-option">
+                    <input type="radio" name="calculation-mode" value="business">
+                    <span class="mode-option-content">
+                        <strong>営業日数</strong>
+                        <span>土日・日本の祝日を除いて計算</span>
+                    </span>
+                </label>
+            </div>
+
+            <p id="holiday-status" class="holiday-status" role="status" aria-live="polite">
+                通常の日数を計算します。祝日データの取得は不要です。
+            </p>
+        </section>
+
+        <section class="date-panel" aria-labelledby="difference-heading">
+            <h2 id="difference-heading">2つの日付の間の日数を計算</h2>
+
+            <p class="section-description">
+                開始日と終了日を入力すると、その期間の日数を計算します。
+                開始日と終了日の両方を含めて数えます。
+            </p>
+
+            <form id="difference-form" class="date-form">
+                <div class="form-field">
+                    <label for="start-date">開始日</label>
+                    <input type="date" id="start-date" name="start-date" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="end-date">終了日</label>
+                    <input type="date" id="end-date" name="end-date" required>
+                </div>
+
+                <button type="submit" class="date-button">
+                    日数を計算する
+                </button>
+            </form>
+
+            <div id="difference-result" class="date-result" aria-live="polite" aria-atomic="true">
+                <p>開始日と終了日を入力してください。</p>
+            </div>
+        </section>
+
+        <section class="date-panel" aria-labelledby="addition-heading">
+            <h2 id="addition-heading">指定した日数後・前の日付を計算</h2>
+
+            <p class="section-description">
+                基準日と日数を入力すると、指定した日数後または前の日付を計算します。
+                例えば「3日後」は、基準日の翌日を1日目として数えます。
+            </p>
+
+            <form id="addition-form" class="date-form">
+                <div class="form-field">
+                    <label for="base-date">基準日</label>
+                    <input type="date" id="base-date" name="base-date" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="day-count">日数</label>
+                    <input type="number" id="day-count" name="day-count" min="-5000" max="5000" step="1" value="7"
+                        required>
+                    <p class="field-help">
+                        正の数は未来、負の数は過去の日付を計算します。
+                    </p>
+                </div>
+
+                <button type="submit" class="date-button">
+                    日付を計算する
+                </button>
+            </form>
+
+            <div id="addition-result" class="date-result" aria-live="polite" aria-atomic="true">
+                <p>基準日と日数を入力してください。</p>
+            </div>
+        </section>
+
+        <aside class="date-help">
+            <h2>使い方と注意点</h2>
+            <ul>
+                <li>通常の日数では、土日・祝日も1日として数えます。</li>
+                <li>営業日数では、土曜日・日曜日・取得できた日本の祝日を除外します。</li>
+                <li>期間の日数計算では、開始日と終了日の両方を含めて数えます。</li>
+                <li>日数後・前の計算では、基準日そのものは数えません。</li>
+                <li>祝日データの取得にはインターネット接続が必要です。</li>
+                <li>会社独自の休業日や振替休日の運用などは、勤務先の規則も確認してください。</li>
+            </ul>
+        </aside>
+
+        <p class="back-link">
+            <a href="../index.html">← トップページに戻る</a>
+        </p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> ちょいラク工具箱</p>
+        </div>
+    </footer>
+</body>
+
+</html>

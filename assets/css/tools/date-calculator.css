@@ -1,0 +1,372 @@
+/* 日数・営業日計算ツール */
+
+.date-tool {
+    width: min(100% - 32px, 800px);
+    margin: 0 auto;
+    padding-top: 24px;
+    padding-bottom: 48px;
+}
+
+/* パンくずリスト */
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* ページの説明 */
+
+.tool-intro {
+    margin-bottom: 28px;
+}
+
+.tool-intro h1 {
+    margin: 0 0 12px;
+    color: #1e293b;
+    font-size: clamp(1.7rem, 5vw, 2.2rem);
+    line-height: 1.4;
+}
+
+.tool-intro p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.9;
+}
+
+/* 計算方法の選択 */
+
+.calculation-mode-panel {
+    margin-bottom: 28px;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgb(15 23 42 / 4%);
+}
+
+.calculation-mode-panel h2 {
+    margin: 0 0 16px;
+    color: #1e293b;
+    font-size: 1.2rem;
+}
+
+.calculation-mode-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.mode-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.mode-option:hover {
+    border-color: #93c5fd;
+}
+
+.mode-option:has(input:checked) {
+    background: #eff6ff;
+    border-color: #2563eb;
+}
+
+.mode-option input {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin: 3px 0 0;
+    accent-color: #2563eb;
+}
+
+.mode-option input:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+.mode-option-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.mode-option-content strong {
+    color: #1e293b;
+    font-size: 1rem;
+}
+
+.mode-option-content span {
+    color: #64748b;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+/* 祝日データの取得状況 */
+
+.holiday-status {
+    margin: 16px 0 0;
+    padding: 10px 12px;
+    color: #475569;
+    background: #f1f5f9;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.holiday-status[data-state="loading"] {
+    color: #1d4ed8;
+    background: #eff6ff;
+}
+
+.holiday-status[data-state="success"] {
+    color: #166534;
+    background: #f0fdf4;
+}
+
+.holiday-status[data-state="error"] {
+    color: #991b1b;
+    background: #fef2f2;
+}
+
+/* 計算パネル */
+
+.date-panel {
+    margin-bottom: 24px;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgb(15 23 42 / 4%);
+}
+
+.date-panel h2 {
+    margin: 0 0 12px;
+    color: #1e293b;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.section-description {
+    margin: 0 0 20px;
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* 入力フォーム */
+
+.date-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.form-field label {
+    color: #334155;
+    font-weight: 600;
+}
+
+.form-field input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+    color: #1e293b;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.form-field input:focus {
+    border-color: #2563eb;
+    outline: 3px solid rgb(37 99 235 / 15%);
+}
+
+.field-help {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* 計算ボタン */
+
+.date-button {
+    grid-column: 1 / -1;
+    min-height: 48px;
+    padding: 12px 20px;
+    color: #ffffff;
+    background: #2563eb;
+    border: 0;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.date-button:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.date-button:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+.date-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+/* 計算結果 */
+
+.date-result {
+    min-height: 52px;
+    margin-top: 20px;
+    padding: 16px;
+    color: #1e293b;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.date-result p {
+    margin: 0;
+}
+
+.date-result strong {
+    color: #1d4ed8;
+    font-size: 1.2rem;
+}
+
+.date-result[data-state="success"] {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.date-result[data-state="success"] strong {
+    color: #166534;
+}
+
+.date-result[data-state="error"] {
+    color: #991b1b;
+    background: #fef2f2;
+    border-color: #fecaca;
+}
+
+.date-result[data-state="error"] strong {
+    color: #991b1b;
+}
+
+/* 使い方・注意事項 */
+
+.date-help {
+    margin-top: 32px;
+    padding: 24px;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+.date-help h2 {
+    margin: 0 0 12px;
+    color: #1e293b;
+    font-size: 1.15rem;
+}
+
+.date-help ul {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: #475569;
+    line-height: 1.9;
+}
+
+.date-help li+li {
+    margin-top: 6px;
+}
+
+/* トップページへのリンク */
+
+.back-link {
+    margin: 28px 0 0;
+}
+
+.back-link a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+/* スマートフォン対応 */
+
+@media (max-width: 600px) {
+    .date-tool {
+        width: min(100% - 24px, 800px);
+        padding-top: 16px;
+        padding-bottom: 32px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 20px;
+        font-size: 0.85rem;
+    }
+
+    .calculation-mode-panel,
+    .date-panel,
+    .date-help {
+        padding: 18px;
+    }
+
+    .calculation-mode-options {
+        grid-template-columns: 1fr;
+    }
+
+    .date-form {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .date-button {
+        grid-column: auto;
+    }
+
+    .date-panel h2 {
+        font-size: 1.15rem;
+    }
+}
